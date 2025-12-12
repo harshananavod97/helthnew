@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:health_fit_strong/config/apptheme.dart';
-import 'package:health_fit_strong/provider/authprovider.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:animate_do/animate_do.dart';
+
+import '../provider/authprovider.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -228,10 +229,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       delay: const Duration(milliseconds: 800),
                       child: OutlinedButton.icon(
                         onPressed: _handleGoogleSignIn,
-                        icon: Image.asset(
-                          'assets/icons/google.png',
-                          height: 24,
-                          errorBuilder: (_, __, ___) => const Icon(Icons.g_mobiledata),
+                        icon: Container(
+                          padding: const EdgeInsets.all(2),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: const Icon(
+                            Icons.g_mobiledata,
+                            size: 20,
+                            color: Colors.red,
+                          ),
                         ),
                         label: const Text('Continue with Google'),
                         style: OutlinedButton.styleFrom(
